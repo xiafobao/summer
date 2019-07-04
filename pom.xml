@@ -9,6 +9,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>easyexcel-demo</module>
+        <module>nio-demo</module>
     </modules>
     <name>summer</name>
     <description>Demo project</description>
