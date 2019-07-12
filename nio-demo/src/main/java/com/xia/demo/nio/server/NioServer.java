@@ -1,6 +1,6 @@
-package com.xia.demo.server;
+package com.xia.demo.nio.server;
 
-import com.xia.demo.utils.CodecUtil;
+import com.xia.demo.nio.utils.CodecUtil;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -108,8 +108,12 @@ public class NioServer {
         try {
             //client socket channel
             SocketChannel clientSocketChannel  = (SocketChannel) key.channel();
+            if(!clientSocketChannel.isOpen()){
+                System.out.println("连接已关闭");
+                clientSocketChannel.close();
+            }
             //读取数据
-            ByteBuffer read = CodecUtil.read(clientSocketChannel );
+            ByteBuffer read = CodecUtil.read(clientSocketChannel);
             if(read == null){
                 System.out.println("断开channel");
                 clientSocketChannel.register(selector, 0);
@@ -118,9 +122,9 @@ public class NioServer {
             //打印数据
             if(read.position() > 0){
                 String str = CodecUtil.newString(read);
-                System.out.println("读取数据：" + str);
+                System.out.println("服务端读取数据：" + str);
                 List<String> attachment = (List<String>) key.attachment();
-                attachment.add("响应：" + str);
+                attachment.add("收到（OJBK）：" + str);
                 //注册client socket channel到selector中
                 clientSocketChannel.register(selector, SelectionKey.OP_WRITE, key.attachment());
             }

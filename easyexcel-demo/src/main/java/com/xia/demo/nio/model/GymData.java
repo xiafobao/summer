@@ -1,4 +1,4 @@
-package com.xia.demo.model;
+package com.xia.demo.nio.model;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.metadata.BaseRowModel;

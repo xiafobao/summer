@@ -10,6 +10,7 @@
     <modules>
         <module>easyexcel-demo</module>
         <module>nio-demo</module>
+        <module>common-utils</module>
     </modules>
     <name>summer</name>
     <description>Demo project</description>

@@ -1,7 +1,7 @@
-package com.xia.demo;
+package com.xia.demo.nio;
 
-import com.xia.demo.model.GymData;
-import com.xia.demo.util.ExcelUtil;
+import com.xia.demo.nio.model.GymData;
+import com.xia.demo.nio.util.ExcelUtil;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
