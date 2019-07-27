@@ -1,0 +1,22 @@
+# rabbitmq相关配置
+server:
+  port: 8080
+spring:
+  application:
+    name: springboot-rabbitmq
+  rabbitmq:
+    host: 192.168.56.106
+    port: 5672
+    username: admin
+    password: admin
+    # 开启发送确认
+    publisher-confirms: true
+    virtual-host: /
+    # 开启发送失败退回
+    publisher-returns: true
+    # 开启ACK
+    listener:
+      direct:
+        acknowledge-mode: AUTO
+      simple:
+        acknowledge-mode: AUTO

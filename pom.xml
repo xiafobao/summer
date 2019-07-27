@@ -11,9 +11,36 @@
         <module>easyexcel-demo</module>
         <module>nio-demo</module>
         <module>common-utils</module>
+        <module>spring-boot-rabbitmq-demo</module>
+        <module>rpc-demo</module>
     </modules>
     <name>summer</name>
     <description>Demo project</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.1-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.54</version>
+        </dependency>
+    </dependencies>
 
     <properties>
         <java.version>1.8</java.version>

@@ -71,35 +71,35 @@ public class RabbitmqConfig {
     // 对比其中的键值对是否完全匹配Queue与Exchange绑定时指定的键值对；如果完全匹配则消息会路由到该Queue，否则不会路由到该Queue。
 
     @Bean
-    TopicExchange exchange(){
-        return new TopicExchange("exchange");
+    TopicExchange summerTopicExchange(){
+        return new TopicExchange("summer-topic-exchange");
     }
 
     @Bean
     FanoutExchange fanoutExchange(){
-        return new FanoutExchange("fanoutExchange");
+        return new FanoutExchange("summer-fanoutExchange");
     }
 
     /**
      * 将队列topic.message与exchange绑定，binding_key为topic.message,就是完全匹配
      * @param queueMessage
-     * @param exchange
+     * @param summerTopicExchange
      * @return
      */
     @Bean
-    Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange){
-        return BindingBuilder.bind(queueMessage).to(exchange).with("topic.message");
+    Binding bindingExchangeMessage(Queue queueMessage, TopicExchange summerTopicExchange){
+        return BindingBuilder.bind(queueMessage).to(summerTopicExchange).with("topic.tt");
     }
 
     /**
      * 将队列topic.messages与exchange绑定，binding_key为topic.#,模糊匹配
      * @param queueMessages
-     * @param exchange
+     * @param summerTopicExchange
      * @return
      */
     @Bean
-    Binding bindingExchangeMessages(Queue queueMessages, TopicExchange exchange){
-        return BindingBuilder.bind(queueMessages).to(exchange).with("topic.#");
+    Binding bindingExchangeMessages(Queue queueMessages, TopicExchange summerTopicExchange){
+        return BindingBuilder.bind(queueMessages).to(summerTopicExchange).with("topic.#");
     }
 
     @Bean

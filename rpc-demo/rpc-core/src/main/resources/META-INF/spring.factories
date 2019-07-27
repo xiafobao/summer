@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.xia.demo.config.RpcAutoConfiguration,\
+com.xia.demo.config.ProviderAutoConfiguration,\
+com.xia.demo.config.ConsumerAutoConfiguration

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RabbitListener(queues = "summer")
 @Slf4j
-public class Consumer {
+public class ConsumerA {
     @RabbitHandler
     public void process(String message){
         log.info("消费者A=== rabbitmq接收的消息为：{}", message);

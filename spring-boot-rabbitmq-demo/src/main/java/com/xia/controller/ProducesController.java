@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  * Copyright @ 2019 SHANZHEN fuli Co. Ltd.
  * All right reserved.
@@ -23,7 +26,7 @@ public class ProducesController {
     @GetMapping("/send")
     public String send(String msg){
         for (int i = 0; i < 100; i++){
-            String str = i + msg + "--->" + System.currentTimeMillis();
+            String str = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +  "第" + i + "条" + msg;
             amqpTemplate.convertAndSend("summer", str);
         }
         return "消息：" + msg + ". ===> 已发送100条!";
@@ -31,14 +34,15 @@ public class ProducesController {
 
     @GetMapping("/topicSend")
     public String topicSend(String msg){
-        for (int i = 0; i < 100; i++){
-            String str = "第"+i+"条topic.message消息：" + msg + "===> 发送时间为：" + System.currentTimeMillis();
-            amqpTemplate.convertAndSend("exchange", "topic.message", str);
+        int len = 10;
+        for (int i = 0; i < len; i++){
+            String str = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:SS")) + "===>第"+i+"条topic.message消息：" + msg;
+            amqpTemplate.convertAndSend("summer-exchange", "topic.zz", str);
         }
-        for (int i = 0; i < 100; i++) {
-            String str = "第"+i+"条topic.messages消息：" + msg + "===> 发送时间为：" + System.currentTimeMillis();
-            amqpTemplate.convertAndSend("exchange", "topic.messages", str);
-        }
-        return "消息：" + msg + ". ===> 已发送100条!";
+        //for (int i = 0; i < len; i++) {
+        //    String str = "第"+i+"条topic.messages消息：" + msg + "===> 发送时间为：" + System.currentTimeMillis();
+        //    amqpTemplate.convertAndSend("summer-exchange", "topic.me", str);
+        //}
+        return "消息：" + msg + ". ===> 已发送"+len+"条!";
     }
 }

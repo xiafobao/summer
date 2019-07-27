@@ -1,4 +1,4 @@
-package com.xia.demo.netty.client.handler;
+package com.xia.demo.netty.timeserver.client.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
