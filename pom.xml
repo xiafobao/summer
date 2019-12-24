@@ -13,6 +13,7 @@
         <module>common-utils</module>
         <module>spring-boot-rabbitmq-demo</module>
         <module>rpc-demo</module>
+        <module>spring-demo</module>
     </modules>
     <name>summer</name>
     <description>Demo project</description>

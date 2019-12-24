@@ -17,4 +17,12 @@ public class HelloController {
     public String hello(){
         return "hello";
     }
+
+
+    public static void main(String[] args) {
+        System.out.println(Integer.SIZE);
+        System.out.println(Integer.SIZE-3);
+        System.out.println(-1 << (Integer.SIZE - 3));
+        System.out.println(1 << (Integer.SIZE - 3) - 1);
+    }
 }
