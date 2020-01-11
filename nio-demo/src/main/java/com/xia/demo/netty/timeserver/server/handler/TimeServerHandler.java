@@ -1,11 +1,7 @@
 package com.xia.demo.netty.timeserver.server.handler;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-
-import java.util.Date;
 
 /**
  * @author xiafb
@@ -19,16 +15,18 @@ public class TimeServerHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         String request = (String) msg;
         String response = null;
-        if("QUERY TIME ORDER".equals(request)){
+        /*if("QUERY TIME ORDER".equals(request)){
+            System.out.println(request);
             response = new Date(System.currentTimeMillis()).toString();
         }else {
             response = "HTTP/1.1 200 OK \n" +
                        "Content-Type: text/html\n" +
                        "\n" +
                        "BAD_REQUEST";
-        }
-        response = response + System.getProperty("line.separator");
-        ByteBuf byteBuf = Unpooled.copiedBuffer(response.getBytes());
-        ctx.writeAndFlush(byteBuf);
+        }*/
+        //response = response + System.getProperty("line.separator");
+        //ByteBuf byteBuf = Unpooled.copiedBuffer(response.getBytes());
+        //ctx.writeAndFlush(byteBuf);
+        System.out.println(request);
     }
 }
