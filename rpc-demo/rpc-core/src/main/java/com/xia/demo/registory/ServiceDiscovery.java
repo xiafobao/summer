@@ -25,7 +25,6 @@ public class ServiceDiscovery {
     private volatile List<ProviderInfo> dataList = new ArrayList<>();
 
     public ServiceDiscovery(String registerAddress) throws ZkConnectException {
-
         try {
             ZooKeeper zooKeeper = new ZooKeeper(registerAddress, 2000, watchedEvent -> {
                 log.info("consumer connect zk success...");

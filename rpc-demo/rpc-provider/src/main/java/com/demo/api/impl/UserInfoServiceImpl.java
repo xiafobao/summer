@@ -4,11 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.demo.api.UserInfoService;
 import com.demo.model.ResponseVO;
 import com.demo.model.UserVO;
-import com.google.common.collect.Maps;
 import com.xia.demo.annotation.RpcService;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.Map;
 
 
 /**
@@ -22,11 +19,9 @@ import java.util.Map;
 @RpcService(UserInfoService.class)
 public class UserInfoServiceImpl implements UserInfoService {
     @Override
-    public ResponseVO<Map<String, UserVO>> getUserInfo(UserVO userVO) {
+    public ResponseVO<UserVO> getUserInfo(UserVO userVO) {
         log.debug("接收到数据: {}", JSON.toJSONString(userVO));
-        Map<String, Object> rsult = Maps.newHashMap();
-        rsult.put("code", "ok");
-        return ResponseVO.success(rsult);
+        return ResponseVO.success(userVO);
     }
 
     @Override

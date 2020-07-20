@@ -1,0 +1,10 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: springboot-demo-2
+
+nacos:
+  discovery:
+    server-addr: 172.16.200.59:8848
+    auto-register: true

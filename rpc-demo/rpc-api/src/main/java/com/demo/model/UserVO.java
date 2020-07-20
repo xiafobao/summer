@@ -12,8 +12,8 @@ import java.io.Serializable;
 
 public class UserVO implements Serializable {
 
-    private static final long serialVersionUID = 7691196072390593120L;
 
+    private static final long serialVersionUID = -4674688328105730617L;
     private String userNo;
 
     private String userName;

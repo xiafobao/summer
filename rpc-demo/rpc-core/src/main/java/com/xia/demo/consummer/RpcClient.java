@@ -58,7 +58,7 @@ public class RpcClient extends SimpleChannelInboundHandler<RpcResponse> {
             bootstrap.channel(NioSocketChannel.class);
             bootstrap.handler(new ChannelInitializer<SocketChannel>() {
                 @Override
-                protected void initChannel(SocketChannel ch) throws Exception {
+                protected void initChannel(SocketChannel ch) {
                     ch.pipeline().addLast(new RpcEncoder(RpcRequest.class))
                             .addLast(new RpcDecoder(RpcResponse.class))
                             .addLast(RpcClient.this);

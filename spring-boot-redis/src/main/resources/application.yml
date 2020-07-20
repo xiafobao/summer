@@ -1,0 +1,17 @@
+# Redis配置
+redis:
+  #Redis服务器地址
+  host: 127.0.0.1
+  #Redis服务器端口
+  port: 6379
+  #Redis连接池
+  pool:
+    #连接池最大连接数
+    max-active: 8
+    #连接池最大阻塞等待时间
+    max-wait: -1
+    #连接池最大空闲连接
+    max-idle: 8
+    #连接池最小空闲连接
+    min-idle: 0
+    #连接超时时间（毫秒）

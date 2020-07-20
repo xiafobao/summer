@@ -10,11 +10,11 @@ import java.io.Serializable;
  * version
  */
 public class ResponseVO<T> implements Serializable {
-    private static final long serialVersionUID = -1729218072927770388L;
 
     private static final String SUCCESS = "success";
 
     private static final String FAIL = "fail";
+    private static final long serialVersionUID = -3400385033673238972L;
 
     private String code;
 
@@ -45,12 +45,12 @@ public class ResponseVO<T> implements Serializable {
         this.msg = msg;
     }
 
-    public static <T>ResponseVO success(T data){
-        return new ResponseVO(SUCCESS, data);
+    public static <T> ResponseVO<T> success(T data){
+        return new ResponseVO<>(SUCCESS, data);
     }
 
-    public static <T>ResponseVO error(String msg){
-        return new ResponseVO(FAIL, msg);
+    public static <T> ResponseVO<T> error(String msg){
+        return new ResponseVO<>(FAIL, msg);
     }
 
     public String getCode() {

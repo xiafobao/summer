@@ -28,6 +28,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
             Object handle = handle(msg);
             response.setResult(handle);
         } catch (Exception ex) {
+            ex.printStackTrace();
             response.setError(ex);
         }
         ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);

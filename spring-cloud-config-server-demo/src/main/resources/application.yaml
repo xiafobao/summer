@@ -1,0 +1,22 @@
+server:
+  port: 9900
+
+spring:
+  application:
+    name: spring-cloud-config-server-demo
+  profiles:
+    active: native
+  config:
+    name: spring-cloud-config-server-demo
+  cloud:
+    config:
+      server:
+        bootstrap: true
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+

@@ -15,6 +15,9 @@
         <module>rpc-demo</module>
         <module>spring-demo</module>
         <module>mybatis-learn</module>
+        <module>desgin-patten</module>
+        <module>xia-websocket</module>
+        <module>base-learning</module>
     </modules>
     <name>summer</name>
     <description>Demo project</description>
@@ -27,11 +30,6 @@
             <artifactId>lombok</artifactId>
             <version>1.18.6</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.8.1</version>
-        </dependency>
 
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -43,6 +41,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.54</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.5.11</version>
         </dependency>
     </dependencies>
 

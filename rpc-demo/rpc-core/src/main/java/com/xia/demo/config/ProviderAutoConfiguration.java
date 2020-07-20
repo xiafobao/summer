@@ -51,14 +51,15 @@ public class ProviderAutoConfiguration {
         log.info("rpc server start scanning provider service... ");
         Map<String, Object> beanMap = this.applicationContext.getBeansWithAnnotation(RpcService.class);
         if (MapUtils.isNotEmpty(beanMap)) {
-            beanMap.entrySet().forEach(map -> {
-                initProviderBean(map.getKey(), map.getKey());
-            });
+            beanMap.forEach(this::initProviderBean);
         }
         log.info("rpc server scan over...");
         // 如果有服务的话才启动netty server
         if (!beanMap.isEmpty()) {
-            startNetty(rpcProperties.getPort());
+            Thread thread = new Thread(() -> {
+                startNetty(rpcProperties.getPort());
+            });
+            thread.start();
         }
     }
 
@@ -70,7 +71,7 @@ public class ProviderAutoConfiguration {
      */
     private void initProviderBean(String beanName, Object beanObj) {
         RpcService annotationOnBean = this.applicationContext.findAnnotationOnBean(beanName, RpcService.class);
-        BeanFactory.addBean(annotationOnBean.value(), annotationOnBean);
+        BeanFactory.addBean(annotationOnBean.value(), beanObj);
     }
 
 

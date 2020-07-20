@@ -4,6 +4,7 @@ import com.xia.demo.model.ProviderInfo;
 import com.xia.demo.model.RpcRequest;
 import com.xia.demo.model.RpcResponse;
 import com.xia.demo.registory.ServiceDiscovery;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,7 @@ import java.util.UUID;
  * modified By
  * version
  */
+@Slf4j
 @Component
 public class RpcProxy {
     @Autowired
@@ -32,7 +34,9 @@ public class RpcProxy {
                     .setMethodName(method.getName())
                     .setParamTypes(method.getParameterTypes())
                     .setParams(args);
+            log.debug("代理对像中的RpcRequest信息：{}", rpcRequest);
             ProviderInfo providerInfo = serviceDiscovery.discover(providerName);
+            log.debug("代理对像中的ProviderInfo信息：{}", rpcRequest);
             String[] addrInfo = providerInfo.getAddr().split(":");
             String host = addrInfo[0];
             int port = Integer.parseInt(addrInfo[1]);

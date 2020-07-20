@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
-
 /**
  * @author xiafb
  * @date Created in 2019/7/27 10:43
@@ -34,7 +32,7 @@ public class HelloController {
         userVO.setUserNo("007");
         userVO.setUserName(name);
         userVO.setAge(18);
-        ResponseVO<Map<String, UserVO>> userInfo = userInfoService.getUserInfo(userVO);
+        ResponseVO<UserVO> userInfo = userInfoService.getUserInfo(userVO);
         log.info("rpc result: {}", JSON.toJSONString(userInfo));
         return JSON.toJSONString(userInfo);
     }
